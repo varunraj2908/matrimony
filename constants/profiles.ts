@@ -1,0 +1,14 @@
+export const profiles = [
+  { name:"Priya Sharma",   age:27, height:"5'4\"", job:"Software Engineer",  religion:"Hindu",     lang:"Tamil",     city:"Chennai",   badge:"NEW",      badgeColor:"#f59e0b", bg:"linear-gradient(135deg,#f9a8d4,#c084fc)", image:"/image2.jpg" },
+  { name:"Ananya Nair",    age:25, height:"5'2\"", job:"Doctor",             religion:"Hindu",     lang:"Malayalam", city:"Kochi",     badge:"VERIFIED", badgeColor:"#10b981", bg:"linear-gradient(135deg,#bfdbfe,#93c5fd)", image:"/image2.jpg" },
+  { name:"Divya Menon",    age:29, height:"5'5\"", job:"MBA, Manager",       religion:"Hindu",     lang:"Telugu",    city:"Hyderabad", badge:"PREMIUM",  badgeColor:"#8b5cf6", bg:"linear-gradient(135deg,#fde68a,#fbbf24)", image:"/image2.jpg" },
+  { name:"Meera Pillai",   age:26, height:"5'3\"", job:"UX Designer",        religion:"Hindu",     lang:"Malayalam", city:"Bangalore", badge:"HOT",      badgeColor:"#ef4444", bg:"linear-gradient(135deg,#d8b4fe,#a78bfa)", image:"/image2.jpg" },
+  { name:"Sneha Reddy",    age:28, height:"5'4\"", job:"CA, Finance",        religion:"Hindu",     lang:"Telugu",    city:"Hyderabad", badge:"NEW",      badgeColor:"#f59e0b", bg:"linear-gradient(135deg,#a7f3d0,#34d399)", image:"/image2.jpg" },
+  { name:"Kavya Iyer",     age:24, height:"5'3\"", job:"Architect",          religion:"Hindu",     lang:"Tamil",     city:"Mumbai",    badge:"VERIFIED", badgeColor:"#10b981", bg:"linear-gradient(135deg,#fca5a5,#f87171)", image:"/image2.jpg" },
+  { name:"Riya Thomas",    age:27, height:"5'5\"", job:"Journalist",         religion:"Christian", lang:"Malayalam", city:"Delhi",     badge:"PREMIUM",  badgeColor:"#8b5cf6", bg:"linear-gradient(135deg,#c4b5fd,#818cf8)", image:"/image2.jpg" },
+  { name:"Fatima Khan",    age:26, height:"5'2\"", job:"Pharmacist",         religion:"Muslim",    lang:"Urdu",      city:"Lucknow",   badge:"HOT",      badgeColor:"#ef4444", bg:"linear-gradient(135deg,#fbcfe8,#f472b6)", image:"/image2.jpg" },
+  { name:"Pooja Verma",    age:30, height:"5'6\"", job:"IAS Officer",        religion:"Hindu",     lang:"Hindi",     city:"Jaipur",    badge:"PREMIUM",  badgeColor:"#8b5cf6", bg:"linear-gradient(135deg,#fde68a,#fb923c)", image:"/image2.jpg" },
+  { name:"Lakshmi Rao",    age:25, height:"5'3\"", job:"Data Scientist",     religion:"Hindu",     lang:"Kannada",   city:"Bangalore", badge:"VERIFIED", badgeColor:"#10b981", bg:"linear-gradient(135deg,#bae6fd,#38bdf8)", image:"/image2.jpg" },
+  { name:"Aisha Siddiqui", age:27, height:"5'4\"", job:"Interior Designer",  religion:"Muslim",    lang:"Urdu",      city:"Mumbai",    badge:"NEW",      badgeColor:"#f59e0b", bg:"linear-gradient(135deg,#fbcfe8,#e879f9)", image:"/image2.jpg" },
+  { name:"Neethu George",  age:28, height:"5'2\"", job:"Nurse Practitioner", religion:"Christian", lang:"Malayalam", city:"Kochi",     badge:"VERIFIED", badgeColor:"#10b981", bg:"linear-gradient(135deg,#bbf7d0,#4ade80)", image:"/image2.jpg" },
+];
