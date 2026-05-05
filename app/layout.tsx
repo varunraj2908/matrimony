@@ -33,10 +33,8 @@
 // }
 
 
-import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import "./globals.css";
-import Header from "@/components/layout/Header";
 
 export default function RootLayout({
   children,
@@ -46,10 +44,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Header />
-        <Navbar />
         {children}
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   );

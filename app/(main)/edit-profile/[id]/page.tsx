@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { useRouter } from "next/navigation";
 
 interface Profile {
   id: string;
@@ -19,7 +18,7 @@ const BRAND = "#c0174c";
 
 /* ─── Icons ─────────────────────────────────────────────────────── */
 const CheckCircle = () => (
-  <svg className="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="none">
+  <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none">
     <circle cx="12" cy="12" r="11" stroke="#c0174c" strokeWidth="1.5" fill="#fff5f7" />
     <path d="M7 12.5l3.5 3.5 6-7" stroke="#c0174c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
@@ -251,13 +250,12 @@ const CrownIcon = () => (
   </svg>
 );
 
-/* ─── Sub-components ────────────────────────────────────────────── */
-const Dot = () => <span className="w-1.5 h-1.5 rounded-full bg-gray-300 inline-block mx-1.5 flex-shrink-0" />;
+const Dot = () => <span className="w-1.5 h-1.5 rounded-full bg-gray-300 inline-block mx-1.5 shrink-0" />;
 
 function SectionHeader({ icon, title }: { icon: string; title: string }) {
   return (
     <div className="flex items-center gap-3 mb-5">
-      <div className="w-8 h-8 rounded-full flex items-center justify-center text-base flex-shrink-0" style={{ backgroundColor: "#fff0f4" }}>
+      <div className="w-8 h-8 rounded-full flex items-center justify-center text-base shrink-0" style={{ backgroundColor: "#fff0f4" }}>
         {icon}
       </div>
       <h2 className="text-base font-bold text-gray-800">{title}</h2>
@@ -269,7 +267,7 @@ function SectionHeader({ icon, title }: { icon: string; title: string }) {
 function InfoRow({ label, value, locked }: { label: string; value?: string | null; locked?: boolean }) {
   return (
     <div className="flex items-start py-2.5 border-b border-gray-50 last:border-0">
-      <span className="text-sm text-gray-500 w-48 flex-shrink-0">{label}</span>
+      <span className="text-sm text-gray-500 w-48 shrink-0">{label}</span>
       <span className="text-gray-300 mr-3 text-sm">:</span>
       {locked ? (
         <button className="flex items-center gap-1.5 text-sm font-medium transition-opacity hover:opacity-75" style={{ color: BRAND }}>
@@ -286,7 +284,7 @@ function InfoRow({ label, value, locked }: { label: string; value?: string | nul
 function PrefRow({ label, value, match }: { label: string; value: string; match: boolean }) {
   return (
     <div className="flex items-center py-2.5 border-b border-gray-50 last:border-0 gap-3">
-      <span className="text-sm text-gray-500 w-52 flex-shrink-0">{label}</span>
+      <span className="text-sm text-gray-500 w-52 shrink-0">{label}</span>
       <span className="text-sm text-gray-800 flex-1">{value}</span>
       {match && <CheckCircle />}
     </div>
@@ -359,16 +357,9 @@ const ProfileCard = ({
   </div>
 );
 
-
-/* ─── Main Page ─────────────────────────────────────────────────── */
 export default function ProfilePreviewPage() {
-  const router = useRouter();
   const [activePhoto, setActivePhoto] = useState(0);
-  const [activeThumb, setActiveThumb] = useState(0);
-  const allThumbs = [...PHOTOS, ...PHOTOS, ...PHOTOS];
-
     const scrollRef = useRef<HTMLDivElement>(null);
-  
     const scrollLeft = () => {
       scrollRef.current?.scrollBy({
         left: -300,
@@ -384,11 +375,6 @@ export default function ProfilePreviewPage() {
     }
   return (
     <div className="min-h-screen bg-gray-50">
-
-      {/* ── Sticky top bar ── */}
-     
-
-      {/* ── Thumbnail strip ── */}
       <div className="w-full flex justify-center pt-7">
              <div className="bg-white  rounded-xl max-w-[61.5%] border border-gray-200 shadow-sm overflow-hidden  ">
             <div className="flex items-center justify-between mb-3 bg-[#b22234] p-4">
@@ -400,32 +386,24 @@ export default function ProfilePreviewPage() {
                   Recommended matches for today
                 </p>
               </div>
-
               <div className="flex items-center gap-2">
-                {/* LEFT BUTTON */}
                 <button
                   onClick={scrollLeft}
                   className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:border-[#ea580c] hover:text-[#ea580c] bg-white shadow-sm"
                 >
                   <ChevronLeft />
                 </button>
-
-                {/* RIGHT BUTTON */}
                 <button
                   onClick={scrollRight}
                   className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:border-[white] hover:text-[#ea580c] bg-white shadow-sm"
                 >
                   <ChevronRight />
                 </button>
-
-                {/* <Timer /> */}
                 <button className="flex items-center gap-1 text-xs text-[white] font-semibold hover:underline border border-[white] px-3 py-1.5 rounded-full hover:bg-orange-50 transition-colors">
                   View all <ChevronRight />
                 </button>
               </div>
             </div>
-
-            {/* SCROLL CONTAINER */}
              <div className="p-4">
             <div
               ref={scrollRef}
@@ -440,13 +418,9 @@ export default function ProfilePreviewPage() {
           </div>
 
       <div className="max-w-5xl mx-auto px-4 py-6 space-y-4">
-
-        {/* ── Hero Card ── */}
         <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden p-3">
           <div className="flex">
-
-            {/* Photo column */}
-            <div className="flex-shrink-0 w-56 relative">
+            <div className="shrink-0 w-56 relative">
               <div className="absolute top-3 left-3 z-10 text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow-sm" style={{ backgroundColor: BRAND }}>
                 NEWLY JOINED
               </div>
@@ -457,8 +431,7 @@ export default function ProfilePreviewPage() {
                 style={{ height: "280px" }}
                 onError={(e) => { (e.target as HTMLImageElement).src = "https://ui-avatars.com/api/?name=Anju+Krishna&background=c0174c&color=fff&size=224"; }}
               />
-              {/* Nav overlay */}
-              <div className="absolute bottom-0 rounded-lg left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-3 flex items-center justify-between">
+              <div className="absolute bottom-0 rounded-lg left-0 right-0 bg-linear-to-t from-black/50 to-transparent p-3 flex items-center justify-between">
                 <button onClick={() => setActivePhoto((p) => (p - 1 + PHOTOS.length) % PHOTOS.length)} className="text-white/80 hover:text-white transition-colors">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
                 </button>
@@ -468,10 +441,7 @@ export default function ProfilePreviewPage() {
                 </button>
               </div>
             </div>
-
-            {/* Info column */}
             <div className="flex-1 p-5 flex flex-col">
-              {/* Top row */}
               <div className="flex items-start justify-between mb-4">
                 <div className="flex items-center gap-2 flex-wrap">
                   <span className="flex items-center gap-1.5 text-xs font-bold text-blue-600 bg-blue-50 border border-blue-200 rounded-full px-3 py-1">
@@ -492,8 +462,6 @@ export default function ProfilePreviewPage() {
                   </button>
                 </div>
               </div>
-
-              {/* Name */}
               <div className="flex items-start justify-between mb-3">
                 <div>
                   <h1 className="text-2xl font-bold text-gray-900 mb-0.5">Anju Krishna</h1>
@@ -508,8 +476,6 @@ export default function ProfilePreviewPage() {
                   </button>
                 </div>
               </div>
-
-              {/* Dot-separated details */}
               <div className="flex flex-wrap items-center text-sm text-gray-600 mb-2">
                 {["Never Married", "Profile created by self", "29 yrs", "4'11\"", "Thiyya (Caste No Bar)", "M.Sc."].map((item, i, arr) => (
                   <span key={i} className="flex items-center">
@@ -524,32 +490,24 @@ export default function ProfilePreviewPage() {
                   </span>
                 ))}
               </div>
-
-              {/* Actions */}
               <div className="mt-auto pt-4 border-t border-gray-100">
                 <ActionButtons />
               </div>
             </div>
           </div>
         </div>
-
-        {/* ── Personal Information ── */}
         <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-5">
           <SectionHeader icon="👤" title="Personal Information" />
           {PERSONAL_INFO.map((r) => <InfoRow key={r.label} {...r} />)}
         </div>
-
-        {/* ── Family Information ── */}
         <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-5">
           <SectionHeader icon="👨‍👩‍👧" title="Family Information" />
           {FAMILY_INFO.map((r) => <InfoRow key={r.label} {...r} />)}
         </div>
-
-        {/* ── Contact Information ── */}
         <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-5">
           <SectionHeader icon="📞" title="Contact Information" />
           <div className="flex items-center py-2">
-            <span className="text-sm text-gray-500 w-48 flex-shrink-0">Mobile Number</span>
+            <span className="text-sm text-gray-500 w-48 shrink-0">Mobile Number</span>
             <span className="text-gray-300 mr-3 text-sm">:</span>
             <button className="flex items-center gap-1.5 text-sm font-medium hover:opacity-75 transition-opacity" style={{ color: BRAND }}>
               <LockIcon /> +44 77×××××××× &nbsp; Upgrade to view
@@ -557,8 +515,6 @@ export default function ProfilePreviewPage() {
             </button>
           </div>
         </div>
-
-        {/* ── About Myself ── */}
         <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-5">
           <SectionHeader icon="💬" title="About Myself" />
           <div className="space-y-5 text-sm text-gray-700 leading-relaxed">
@@ -583,18 +539,12 @@ export default function ProfilePreviewPage() {
             ))}
           </div>
         </div>
-
-        {/* ── Lifestyle ── */}
         <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-5">
           <SectionHeader icon="🌿" title="Lifestyle" />
           {LIFESTYLE.map((r) => <InfoRow key={r.label} {...r} />)}
         </div>
-
-        {/* ── Partner Preferences ── */}
         <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-5">
           <SectionHeader icon="✨" title="Her Partner Preferences" />
-
-          {/* Match score banner */}
           <div className="flex items-center gap-4 p-4 rounded-xl mb-6 border border-pink-100" style={{ backgroundColor: "#fff5f7" }}>
             <img src={PHOTOS[0]} className="w-14 h-14 rounded-full object-cover border-2 border-white shadow-sm" alt=""
               onError={(e) => { (e.target as HTMLImageElement).src = "https://ui-avatars.com/api/?name=A&background=c0174c&color=fff"; }} />
@@ -618,17 +568,17 @@ export default function ProfilePreviewPage() {
         {/* ── Both of you like ── */}
         <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-5">
           <div className="flex items-center justify-center gap-4 mb-5">
-            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-gray-200 to-gray-200" />
+            <div className="h-px flex-1 bg-linear-to-r from-transparent via-gray-200 to-gray-200" />
             <span className="text-sm font-bold text-gray-700 flex items-center gap-2 whitespace-nowrap">
               <span style={{ color: BRAND }}>✦</span> Both of you like <span style={{ color: BRAND }}>✦</span>
             </span>
-            <div className="h-px flex-1 bg-gradient-to-l from-transparent via-gray-200 to-gray-200" />
+            <div className="h-px flex-1 bg-linear-to-l from-transparent via-gray-200 to-gray-200" />
           </div>
           {BOTH_LIKE.map((r) => <InfoRow key={r.label} {...r} />)}
         </div>
 
         {/* ── Assisted Service Banner ── */}
-        <div className="rounded-2xl border border-green-100 bg-gradient-to-br from-green-50 to-emerald-50 p-5 flex items-center gap-5">
+        <div className="rounded-2xl border border-green-100 bg-linear-to-br from-green-50 to-emerald-50 p-5 flex items-center gap-5">
           <div className="flex-1">
             <div className="flex items-center gap-2.5 mb-3">
               <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-xl shadow-sm">🤝</div>
@@ -643,7 +593,7 @@ export default function ProfilePreviewPage() {
             <p className="text-xs text-gray-500 mb-3">Personalized matchmaking service through expert Relationship Manager</p>
             {["Guaranteed matches", "Better response", "Save time & effort"].map((f) => (
               <p key={f} className="flex items-center gap-2 text-sm text-gray-700 font-medium mb-1">
-                <svg className="w-4 h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg className="w-4 h-4 text-green-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                 {f}
               </p>
             ))}
@@ -651,7 +601,7 @@ export default function ProfilePreviewPage() {
               Know more
             </button>
           </div>
-          <img src="https://randomuser.me/api/portraits/women/68.jpg" className="w-32 h-32 rounded-2xl object-cover flex-shrink-0 shadow-sm" alt="" />
+          <img src="https://randomuser.me/api/portraits/women/68.jpg" className="w-32 h-32 rounded-2xl object-cover shrink-0 shadow-sm" alt="" />
         </div>
 
         {/* ── Sticky bottom action bar ── */}

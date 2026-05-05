@@ -268,7 +268,7 @@ export default function Settings() {
         />
       )}
       {/* Header */}
-      <header className="w-full px-8 py-3 flex items-center gap-3 shadow-md sticky top-0 z-50"
+      <header className="w-full px-8 py-3  flex items-center gap-3 shadow-md sticky top-0 z-30"
         style={{ background: "linear-gradient(135deg, #c0174c 0%, #8b0f38 100%)" }}>
         <div className="w-9 h-9 rounded-full flex items-center justify-center" style={{ background: "rgba(255,255,255,0.2)" }}>
           <svg viewBox="0 0 24 24" fill="white" className="w-4 h-4">

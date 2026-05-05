@@ -204,22 +204,25 @@ export default function Navbar() {
   const router = useRouter();
   const [activeNav, setActiveNav] = useState("home");
   const [showUserMenu, setShowUserMenu] = useState(false);
-  const [showSwitchMenu, setShowSwitchMenu] = useState(false);
+  const [, setShowSwitchMenu] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
   const [notifications, setNotifications] = useState(NOTIFICATIONS);
   const [activeTab, setActiveTab] = useState<"all" | "unread">("all");
 
-  const menuRef = useRef(null);
+  const menuRef = useRef<HTMLDivElement | null>(null);
 
-  // Close on outside click
   useEffect(() => {
-    function handleClickOutside(e) {
-      if (menuRef.current && !menuRef.current.contains(e.target)) {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
         setShowUserMenu(false);
       }
-    }
+    };
+
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, []);
 
   const unreadCount = notifications.filter((n) => n.unread).length;
@@ -238,9 +241,9 @@ export default function Navbar() {
   const isLoggedIn = true;
 
   return (
-    <header className="w-full bg-white shadow-sm sticky top-0 z-50">
+    <header className="w-full bg-gray-100 shadow-sm sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex items-center justify-between h-14">
+        <div className="flex items-center justify-between h-16">
           {/* ── Logo ── */}
           <Link href="/" className="flex items-center gap-2 shrink-0">
             <div className="flex flex-col leading-none">
@@ -249,18 +252,25 @@ export default function Navbar() {
                   className="text-xl font-black"
                   style={{ color: "#b22234", fontFamily: "Georgia, serif" }}
                 >
-                  GetMarry
+                  Made
                 </span>
                 <span
-                  className="text-sm font-bold"
-                  style={{ color: "#b22234" }}
+                  className="text-2xl font-bold"
+                  style={{ color: "#f3e228" }}
                 >
-                  .com
+                  2
+                </span>
+
+                <span
+                  className="text-xl font-black"
+                  style={{ color: "#b22234", fontFamily: "Georgia, serif" }}
+                >
+                  Match
                 </span>
               </div>
             </div>
             {/* Evil eye charm */}
-            <span style={{ fontSize: 18 }}>🧿</span>
+            {/* <span style={{ fontSize: 18 }}>🧿</span> */}
           </Link>
 
           {/* ── Center Nav (logged in) ── */}
@@ -302,7 +312,7 @@ export default function Navbar() {
                       {/* ── Notification Dropdown ── */}
                       {showNotifications && (
                         <div
-                          className="absolute right-0 top-12 bg-white  shadow-2xl z-50 overflow-hidden"
+                          className="absolute right-0 top-13.5 bg-white  shadow-2xl z-50 overflow-hidden"
                           style={{ width: 360, border: "1px solid #fce4ec" }}
                         >
                           {/* Header */}
@@ -370,7 +380,7 @@ export default function Navbar() {
                                     }`}
                                   >
                                     {/* Avatar + type icon */}
-                                    <div className="relative flex-shrink-0">
+                                    <div className="relative shrink-0">
                                       <img
                                         src={notif.photo}
                                         alt={notif.name}
@@ -406,7 +416,7 @@ export default function Navbar() {
                                     {/* Unread dot */}
                                     {notif.unread && (
                                       <span
-                                        className="flex-shrink-0 w-2 h-2 rounded-full mt-1"
+                                        className="shrink-0 w-2 h-2 rounded-full mt-1"
                                         style={{ background: "#b22234" }}
                                       />
                                     )}
@@ -507,7 +517,7 @@ export default function Navbar() {
                     </svg>
                   </button>
                   {showUserMenu && (
-                    <div className="absolute right-0 top-11.5 bg-white border border-gray-100 shadow-xl w-64 py-2 z-50">
+                    <div className="absolute right-0 top-12.5 bg-white border border-gray-100 shadow-xl w-64 py-2 z-50">
                       {/* User info */}
                       <div className="px-4 py-3 border-b border-gray-100">
                         <div className="flex items-center justify-between mb-0.5">
@@ -571,7 +581,7 @@ export default function Navbar() {
                         { label: "My Matches", icon: "💞", href: "/profiles" },
                         { label: "Messages", icon: "💬", href: "/chat" },
                         { label: "Settings", icon: "⚙️", href: "/settings" },
-                         { label: "Help", icon: "❓", href: "/help" },
+                        { label: "Help", icon: "❓", href: "/help" },
                       ].map((item) => (
                         <Link
                           key={item.label}
@@ -583,8 +593,6 @@ export default function Navbar() {
                           {item.label}
                         </Link>
                       ))}
-
-                     
                     </div>
                   )}
                 </div>

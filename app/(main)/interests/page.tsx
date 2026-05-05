@@ -197,11 +197,11 @@ function ProfileCard({
   const [declined, setDeclined] = useState(false);
 
   return (
-    <div className="bg-white border border-gray-200 rounded-xl overflow-hidden p-4 h-[240px]">
+    <div className="bg-white border border-gray-200 rounded-xl overflow-hidden p-4 h-60">
       <div className="flex">
 
         {/* Photo */}
-        <div className="flex-shrink-0 w-52">
+        <div className="shrink-0 w-52">
           <img
             src={profile.photo}
             alt={profile.name}

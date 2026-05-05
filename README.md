@@ -34,3 +34,31 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## All Routes
+http://localhost:3000
+http://localhost:3000/home
+http://localhost:3000/chat
+http://localhost:3000/help
+http://localhost:3000/login
+http://localhost:3000/success
+http://localhost:3000/profiles
+http://localhost:3000/settings
+http://localhost:3000/interests
+http://localhost:3000/horoscope
+http://localhost:3000/verify-otp
+http://localhost:3000/onboarding     
+http://localhost:3000/star-details                     
+http://localhost:3000/specialoffer
+http://localhost:3000/edit-profile
+http://localhost:3000/upload-image
+http://localhost:3000/eating-habit
+http://localhost:3000/profiles/MTM00001
+http://localhost:3000/hobbies-interests
+http://localhost:3000/partnerpreferences
+http://localhost:3000/success-onboarding
+http://localhost:3000/onboarding/basic-details
+http://localhost:3000/edit-profile/profile-preview
+http://localhost:3000/onboarding/additional-details
+http://localhost:3000/onboarding/personal-religious-details
+http://localhost:3000/onboarding/location-professional-details
